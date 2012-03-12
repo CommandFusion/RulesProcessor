@@ -166,6 +166,7 @@ var RulesProcessor = (function(){
         for (var i = 0; i < slices.length; i++) {
             slices[i] = padZero(8, ((i * 256) + parseInt(self.byteLocators.FLASH_MEMORY_POS, 16)).toString(16)) + slices[i];
         }
+        slices.push("END");
 		
         // Return all the byte packets as an array
         return slices;
