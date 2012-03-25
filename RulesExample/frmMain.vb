@@ -115,4 +115,22 @@ Public Class frmMain
         End If
 
     End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        If dlgOpen.ShowDialog = Windows.Forms.DialogResult.OK Then
+            ' Attempt to open a rules file
+            Dim openedFileContents As String = IO.File.ReadAllText(dlgOpen.FileName)
+
+            Dim newRulesCol As RulesCollection = rulesProcess.fromBytes(openedFileContents)
+
+            If newRulesCol IsNot Nothing Then
+                MsgBox("Bytes converted back to RuleCollection:" & Environment.NewLine & _
+                   "Macros: " & newRulesCol.macros.Count & Environment.NewLine & _
+                   "Rules: " & newRulesCol.rules.Count)
+            Else
+                MsgBox("Error during conversion FROM bytes")
+                Exit Sub
+            End If
+        End If
+    End Sub
 End Class

@@ -89,6 +89,7 @@ Namespace Rules
                 Return Nothing
             End Try
 
+            My.Computer.Clipboard.SetText(JS.GetParameter("rulesJSON"))
             Dim rules As Object = JsonConvert.DeserializeObject(JS.GetParameter("rulesJSON"))
 
             ' Our new RulesCollection object that all the returned rules data will be stored in
@@ -114,6 +115,7 @@ Namespace Rules
 
     Public Class MessageBox
         Public Sub log(ByVal msg As String)
+            My.Computer.Clipboard.SetText(msg)
             MsgBox(msg)
         End Sub
     End Class

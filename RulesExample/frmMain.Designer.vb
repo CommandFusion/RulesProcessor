@@ -24,6 +24,8 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.btnRun = New System.Windows.Forms.Button
         Me.dlgSaveFile = New System.Windows.Forms.SaveFileDialog
+        Me.Button1 = New System.Windows.Forms.Button
+        Me.dlgOpen = New System.Windows.Forms.OpenFileDialog
         Me.SuspendLayout()
         '
         'btnRun
@@ -42,11 +44,22 @@ Partial Class frmMain
         Me.dlgSaveFile.Filter = "Rules Files|*.cfrls"
         Me.dlgSaveFile.Title = "Save Rules to..."
         '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(13, 42)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(251, 23)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Open File"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(276, 96)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnRun)
         Me.Name = "frmMain"
         Me.Text = "Rules Processor Example"
@@ -55,5 +68,7 @@ Partial Class frmMain
     End Sub
     Friend WithEvents btnRun As System.Windows.Forms.Button
     Friend WithEvents dlgSaveFile As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents dlgOpen As System.Windows.Forms.OpenFileDialog
 
 End Class
