@@ -213,15 +213,15 @@ var RulesProcessor = (function(){
 		var baseData = bytes.match(baseRegex);
 
 		// Create the macros and their actions
-		for (var i = 0; i < parseInt(baseData[2]); i++) {
+		for (var i = 0; i < parseInt(baseData[2],10); i++) {
 			var macroData = macroRegex.exec(baseData[3]);
 			actionRegex.lastIndex = 0;
 			if (macroData) {
 				var newMacro = new RuleMacro(macroData[2]);
-				for (var j = 0; j < parseInt(macroData[3]); j++) {
+				for (var j = 0; j < parseInt(macroData[3], 10); j++) {
 					var actionData = actionRegex.exec(macroData[4]);
 					if (actionData) {
-						newMacro.actions.push(new RuleMacroAction(parseInt(actionData[1]), actionData[2]));
+						newMacro.actions.push(new RuleMacroAction(parseInt(actionData[1], 10), actionData[2]));
 					}
 				}
 				RulesCollection.macros.push(newMacro);
@@ -229,7 +229,7 @@ var RulesProcessor = (function(){
 		}
 		
 		// Create the rules
-		for (var i = 0; i < parseInt(baseData[4]); i++) {
+		for (var i = 0; i < parseInt(baseData[4], 10); i++) {
 			var ruleData = ruleRegex.exec(baseData[5]);
 			if (ruleData) {
 				RulesCollection.rules.push(new Rule(ruleData[1], ruleData[2], ruleData[3]));
